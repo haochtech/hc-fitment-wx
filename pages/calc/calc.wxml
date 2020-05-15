@@ -1,0 +1,92 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="container" wx:if="{{stylen==='1'}}">
+    <view bindtap="bindLinkClick" class="box-gb" data-ctype="calc" data-url="{{pageConfig.page_url}}" wx:if="{{pageConfig.thumb_url}}">
+        <image binderror="imgError" bindload="imgLoad" mode="widthFix" src="{{pageConfig.thumb_url?pageConfig.thumb_url:'/images/image-empty.svg'}}"></image>
+    </view>
+    <view class="box-cont" hidden="{{loadingShow}}">
+        <view class="box-calc">
+            <view class="box-title">
+                <view class="box-left-line"></view>
+                <text>你的装修预算</text>
+                <view class="box-right-line"></view>
+            </view>
+            <view class="box-body">
+                <view class="box-margin">
+                    <view class="box-padding">
+                        <view class="box-show">
+                            <view class="box-li" wx:for="{{calcNums}}" wx:key="{{index}}">
+                                <image src="{{item}}"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="box-yuan">元</view>
+                </view>
+                <view class="box-fay">
+                    <view class="box-ul">
+                        <view class="box-li">{{pageConfig.labour_cost_title}}：？ 元</view>
+                        <view class="box-li">{{pageConfig.stuff_cost_title}}：？ 元</view>
+                        <view class="box-li">{{pageConfig.style_cost_title}}：？ 元</view>
+                        <view class="box-li">{{pageConfig.qt_cost_title}}：？ 元</view>
+                    </view>
+                </view>
+                <view class="box-input">
+                    <picker bindchange="bindRegionChange" class="box-select-city" mode="region" value="{{regionSelectCity}}">
+                        <view class="picker">{{regionSelectCity[0]}} {{regionSelectCity[1]}} {{regionSelectCity[2]}}</view>
+                    </picker>
+                </view>
+                <view class="box-input mj">
+                    <input bindinput="bindAreaInput" maxlength="10" placeholder="请输入房屋面积" type="number" value="{{sendArea}}"></input>
+                    <span>{{pageConfig.unit?pageConfig.unit:'㎡'}}</span>
+                </view>
+                <view class="box-input">
+                    <picker bindchange="bindMultiPickerChange" class="box-house-type" mode="multiSelector" range="{{houseType}}" value="{{houseTypeValue}}">
+                        <view class="picker">{{sendHostType}}</view>
+                    </picker>
+                </view>
+                <view class="box-input">
+                    <input bindinput="bindTelInput" maxlength="20" placeholder="输入号码，报价自动发送" type="number" value="{{sendTel}}"></input>
+                    <button bindgetphonenumber="getPhoneNumber" class="btn-get-phone-number" openType="getPhoneNumber">获取手机号</button>
+                </view>
+                <view class="box-btn">
+                    <button bindtap="fomrSubmitCalc" style="{{syscfg.color.btncolor.length>0?'background:'+syscfg.color.btncolor:''}}" type="default">立即计算</button>
+                </view>
+                <view class="box-tips">填写信息获取免费服务，定制更精准预算规划。</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="calc" wx:else>
+    <view class="calc-main" hidden="{{loadingShow}}">
+        <view>
+            <view class="box-body">
+                <view class="calc-item">
+                    <view class="label">房屋面积 :</view>
+                    <view class="box-input">
+                        <input bindinput="bindAreaInput" maxlength="10" placeholder="{{i8n['srfwmj']}}" type="number" value="{{sendArea}}"></input>
+                        <span class="rt">{{pageConfig.unit?pageConfig.unit:'㎡'}}</span>
+                    </view>
+                </view>
+                <view class="calc-item">
+                    <view class="label">房屋户型 :</view>
+                    <view class="box-input">
+                        <picker bindchange="bindMultiPickerChange" class="box-house-type" mode="multiSelector" range="{{houseType}}" value="{{houseTypeValue}}">
+                            <view class="picker">{{sendHostType}}</view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="calc-item">
+                    <view class="label">手机号码 :</view>
+                    <view class="box-input">
+                        <input bindinput="bindTelInput" maxlength="20" placeholder="{{i8n['shuruhaoma']}}" type="number" value="{{sendTel}}"></input>
+                        <button bindgetphonenumber="getPhoneNumber" class="rt" openType="getPhoneNumber" style="{{syscfg.color.btncolor.length>0?'background:'+syscfg.color.btncolor:''}}">{{i8n['huoqushoujihao']}}</button>
+                    </view>
+                </view>
+                <view class="box-btn">
+                    <button bindtap="fomrSubmitCalc" style="{{syscfg.color.btncolor.length>0?'background:'+syscfg.color.btncolor:''}}" type="default">{{i8n['lijijisuan']}}</button>
+                </view>
+                <view class="box-tips">{{i8n['txxxhqmffuwu']}}。</view>
+            </view>
+        </view>
+    </view>
+</view>
+<slloading wx:if="{{loadingShow}}"></slloading>

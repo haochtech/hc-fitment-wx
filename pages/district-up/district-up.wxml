@@ -1,0 +1,47 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<form bindsubmit="formSubmit" class="district-up" wx:if="{{init}}">
+    <view class="main">
+        <view class="top">
+            <view class="container flex-m">
+                <text class="tit">选择当前阶段</text>
+                <picker bindchange="selectChange" class="jieduan-select" range="{{jieduan}}" value="{{jieduan[selectIndex]}}">
+                    {{jieduan[selectIndex]}}
+                    <i class="iconfont icon-unfold"></i>
+                </picker>
+            </view>
+        </view>
+        <view class="up-item top">
+            <view class="container flex-m">
+                <text class="tit">标题</text>
+                <input class="jieduan-select" name="title" placeholder="请填写标题" type="text" value="{{title}}"></input>
+            </view>
+        </view>
+        <textarea class="msg" name="intro" placeholder="说点什么吧……" value="{{intro}}"></textarea>
+        <view class="imgs">
+            <view bindtap="delImg" class="img" data-i="{{index}}" wx:for="{{upImgs}}" wx:key="{{index}}">
+                <view class="img-item">
+                    <image src="{{item}}"></image>
+                </view>
+                <i class="iconfont icon-close1"></i>
+            </view>
+        </view>
+        <view class="up-file container">
+            <view class="items">
+                <form bindtap="upImage" class="item">
+                    <view class="icon">
+                        <i class="iconfont icon-add"></i>
+                    </view>
+                    <view class="tip">上传图片</view>
+                </form>
+            </view>
+            <view class="tishi">有图有真相，最多上传九张哦！</view>
+        </view>
+    </view>
+    <input class="hide" name="id_progress" type="text" value="{{j_id}}"></input>
+    <input class="hide" name="id_title" type="text" value="{{j_tit}}"></input>
+    <button class="submit" formType="submit" style="background:{{color.btncolor?color.btncolor:'#2fbd80'}};bottom:{{ipx?'68':'0'}}rpx;">
+    发送
+    </button>
+</form>
+<view class="bottom {{ipx?'ipx':''}}"></view>
+<slloading wx:if="{{loadingShow}}"></slloading>

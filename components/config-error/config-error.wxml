@@ -1,0 +1,13 @@
+<view class="config-err">
+    <view class="title">系统提示</view>
+    <view class="content">
+        <view class="p">获取配置失败</view>
+        <view class="p msg">{{errMsg}}</view>
+    </view>
+    <view class="control">
+        <view bindtap="reset" class="reset">重试</view>
+        <view bindtap="copy" class="copy">复制信息</view>
+    </view>
+</view>
+<view catchtouchstart="notTouch" class="err-bg"></view>
+<view class="www">ver {{ver}}</view>

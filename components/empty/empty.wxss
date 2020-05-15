@@ -1,0 +1,37 @@
+@import "../../wuBaseWxss/0.wxss";
+
+.empty {
+    text-align: center;
+    margin-top: 50%;
+}
+
+.empty i {
+    font-size: 200rpx;
+    color: #ccc;
+    display: block;
+}
+
+.empty text {
+    font-size: 28rpx;
+    color: #999;
+    margin: 40rpx 0;
+    max-width: 100%;
+    max-height: 5.6em;
+    line-height: 1.4em;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: pre-wrap;
+    text-align: center;
+    display: block;
+}
+
+.back {
+    display: inline-block;
+    color: #999;
+    border: 2rpx solid #999;
+    font-size: 32rpx;
+    border-radius: 30rpx;
+    line-height: 60rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}

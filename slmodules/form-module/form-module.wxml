@@ -1,0 +1,56 @@
+<form bindsubmit="formSubmit" class="form-module {{labelShow?'':'not-label'}}" wx:if="{{formData.length}}">
+    <view class="form-item {{item.type==='textarea'?'v-top':''}}" wx:for="{{formData}}" wx:key="{{index}}">
+        <block wx:if="{{item.type==='input'}}">
+            <view class="label">{{item.label}} :</view>
+            <input name="{{item.label}}" placeholder="{{item.placeholder}}"></input>
+        </block>
+        <block wx:elif="{{item.type==='checkbox'}}">
+            <input class="hide" type="text"></input>
+            <view class="label">{{item.label}} :</view>
+            <checkbox-group name="{{item.label}}">
+                <label class="checkbox" wx:for="{{item.options.items}}" wx:for-item="ite" wx:key="{{index}}">
+                    <checkbox value="{{ite}}"></checkbox>
+                        {{ite}}
+                    </label>
+            </checkbox-group>
+        </block>
+        <block wx:elif="{{item.type==='radio'}}">
+            <input class="hide" type="text"></input>
+            <view class="label">{{item.label}} :</view>
+            <radio-group class="radio-group" name="{{item.label}}">
+                <label class="radio" wx:for="{{item.options.items}}" wx:for-item="ite" wx:key="{{index}}">
+                    <radio checked="{{index===0?true:false}}" value="{{ite}}"></radio>
+                        {{ite}}
+                    </label>
+            </radio-group>
+        </block>
+        <block wx:elif="{{item.type==='region'}}">
+            <view class="label">{{item.label}} :</view>
+            <picker bindchange="bindRegionChange" class="box-select-city" mode="region" name="{{item.label}}" value="{{regionSelectCity}}">
+                    {{regionSelectCity[0]}} {{regionSelectCity[1]}} {{regionSelectCity[2]}}
+                </picker>
+        </block>
+        <block wx:elif="{{item.type==='select'}}">
+            <view class="label">{{item.label}} :</view>
+            <picker bindchange="selectChange" name="{{item.label}}" range="{{item.options.items}}" value="{{item.options.items[selectIndex]}}">
+                    {{item.options.items[selectIndex]}}
+                </picker>
+        </block>
+        <block wx:elif="{{item.type==='date'}}">
+            <view class="label">{{item.label}} :</view>
+            <picker bindchange="dateChange" mode="date" name="{{item.label}}" value="{{dataVal}}">
+                <text wx:if="{{dataVal}}">{{dataVal}}</text>
+                <text class="placeholder" wx:else>请选择日期</text>
+            </picker>
+        </block>
+        <block wx:elif="{{item.type==='textarea'}}">
+            <view class="label">{{item.label}} :</view>
+            <textarea name="{{item.label}}" placeholder="{{item.placeholder}}"></textarea>
+        </block>
+    </view>
+    <view class="btn-area">
+        <button class="submit" formType="submit" style="background:{{color.btncolor?color.btncolor:'#2fbd80'}}">
+            提交
+        </button>
+    </view>
+</form>

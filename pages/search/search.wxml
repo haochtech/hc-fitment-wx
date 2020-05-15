@@ -1,0 +1,45 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="container" style="background:#eee;min-height: {{syscfg.cpright.copyright_wxapp_l2!=''?'77':'81'}}vh">
+    <view class="box-pic">
+        <view class="box-pic-header" style="top: {{topHeight}}px">
+            <view class="search-box flex-main">
+                <view class="flex">
+                    <i class="icon-cx iconfont"></i>
+                    <input bindchange="goToSearch" placeholder="{{i8n['sousuo']}}" type="text"></input>
+                </view>
+                <view bindtap="quxiao" class="quxiao">{{i8n['quxiao']}}</view>
+            </view>
+            <view class="box-tab-pic">
+                <view class="box-li">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-pictype="0" style="{{picType==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['taotu']}}</view>
+                        <view style="height:6rpx;width:{{750/(syscfg.panorama.status_panorama_in_pic_show==='1'?3:2)}}rpx;background: {{syscfg.color.maincolor.length?syscfg.color.maincolor:'#000'}};transform:translateX({{750/(syscfg.panorama.status_panorama_in_pic_show==='1'?3:2)*(picType==4?2:picType)+'rpx'}}); transition: all 0.3s;"></view>
+                    </view>
+                </view>
+                <view class="box-li">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-pictype="1" style="{{picType==1&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==1&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['dantu']}}</view>
+                    </view>
+                </view>
+                <view class="box-li">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-pictype="4" style="{{picType==4&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==4&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['quanjingtu']}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="box-pic-list-multi transition-all {{picType==0?'':'none'}}">
+            <waterfall isMore="{{ismore}}" listData="{{picListMulti}}" picType="{{0}}"></waterfall>
+        </view>
+        <view class="box-pic-list-single transition-all {{picType==1?'':'none'}}">
+            <waterfall isMore="{{ismore}}" listData="{{picListSingle}}" picType="{{1}}"></waterfall>
+        </view>
+        <view class="quanjing transition-all {{picType==4?'':'none'}}" wx:if="{{syscfg.panorama.status_panorama_in_pic_show==='1'}}">
+            <view class="products-list">
+                <articles-list items="{{list}}" mode="{{listMode}}" type="" url="panorama-detail" wx:if="{{list.length}}"></articles-list>
+                <empty msg="{{i8n['myxgtp']}}" wx:if="{{!list.length}}"></empty>
+            </view>
+        </view>
+        <view bindtap="hideBoxShadow" class="box-shadow {{tabAttr.curBdIndex>=0?'':'none'}}"></view>
+    </view>
+</view>

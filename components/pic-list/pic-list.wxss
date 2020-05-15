@@ -1,0 +1,176 @@
+.pic-list {
+    padding: 0 30rpx;
+}
+
+.pic-list .img {
+    height: 450rpx;
+    overflow: hidden;
+    border-radius: 20rpx;
+    background-color: #000;
+}
+
+.pic-list .img simg {
+    max-width: 100%;
+}
+
+.pic-list .pic-item {
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.pic-list .pic-item .sjs {
+    display: flex;
+    font-size: 30rpx;
+    background-color: #fff;
+    padding: 10rpx;
+}
+
+.pic-list .pic-item .sjs .sjs-info {
+    padding-top: 20rpx;
+    color: #000;
+    font-size: 32rpx;
+    width: 454rpx;
+}
+
+.pic-list .pic-item .sjs>simg {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.pic-list .pic-item .sjs .name {
+    margin: 14rpx 0 8rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pic-list .pic-item .sjs .flag {
+    color: #999;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.l2 .box-li {
+    float: left;
+}
+
+.l2 .box-li:nth-child(2n) {
+    float: right;
+}
+
+.l2 .box-li .box-attr {
+    left: auto;
+}
+
+.box-li {
+    position: relative;
+    margin-bottom: 20rpx;
+    width: 340rpx;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.l1 .box-li {
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+
+.l0 .box-li .box-title {
+    font-size: 24rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 40rpx;
+    color: #535253;
+    padding: 10rpx 20rpx 70rpx;
+    background-color: #fff;
+}
+
+.l0 .box-li .box-attr {
+    font-size: 24rpx;
+    color: #535253;
+    padding: 10rpx 20rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+}
+
+.l0 .box-li .box-attr .ba-left {
+    float: left;
+    width: 150rpx;
+}
+
+.l0 .box-li .box-attr .ba-right {
+    float: right;
+    width: 150rpx;
+    text-align: right;
+}
+
+.l1 .box-li {
+    font-size: 0;
+    overflow: hidden;
+    margin-bottom: 20rpx;
+    width: 340rpx;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.fl .box-li {
+    float: left;
+}
+
+.fl,.fr {
+    width: 340rpx;
+    overflow: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.fr .box-li {
+    float: right;
+}
+
+.box-li simg {
+    width: 100%;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.box-li .box-attr {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 24rpx;
+    color: #fff;
+    padding: 10rpx 20rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+}
+
+.l1 .box-li .box-attr .ba-right {
+    float: right;
+    width: 150rpx;
+    text-align: right;
+}
+
+.box-shadow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 70;
+}

@@ -1,0 +1,23 @@
+<view class="set-info">
+    <form bindsubmit="submit">
+        <view class="top" style="height:{{topH}}px;padding-top:{{topH*(ipx?0.25:0.17)}}px;">
+            <view class="title-box">
+                <i bindtap="back" class="iconfont icon-prev"></i>
+                <text class="title">{{type}}</text>
+            </view>
+        </view>
+        <view class="info-box">
+            <block wx:if="{{type==='设置/重设密码'}}">
+                <input name="pwd" placeholder="请输入密码" type="password"></input>
+                <input name="npwd" placeholder="请重复密码" type="password"></input>
+            </block>
+            <view class="phone-item" wx:elif="{{type==='设置手机号'}}">
+                <input disabled="{{phoneDisable}}" name="phone" placeholder="{{phoneDisable?'':'请输入手机号'}}" type="text" value="{{phone}}"></input>
+                <button bindgetphonenumber="getPhoneNumber" class="get-phone" openType="getPhoneNumber">获取本手机号</button>
+            </view>
+        </view>
+        <view class="cont">
+            <button class="save" formType="submit">保存</button>
+        </view>
+    </form>
+</view>

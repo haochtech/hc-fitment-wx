@@ -1,0 +1,148 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="container" wx:if="{{picn==='1'}}">
+    <view class="box-multi {{picType==0?'':'none'}}">
+        <view class="box-pic-show">
+            <swiper bindchange="spChange" class="box-swiper" duration="{{500}}" indicatorActiveColor="#ffffff" indicatorColor="#999999" indicatorDots="{{true}}">
+                <swiper-item wx:for="{{picMulti.smeta}}" wx:key="{{item.id}}">
+                    <simg bindtap="saveImg" bindtouchend="timeend" bindtouchstart="timestart" data-imgurl="{{item.attr_url}}" mode="aspectFit" src="{{item.attr_url}}"></simg>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="box-info {{stsModel?'x':''}}">
+            <view class="box-cont">
+                <view class="title">{{currTitle}}</view>
+                <view class="box-arrt">
+                    <view class="ba-left">{{picMulti.show_num}} {{i8n['liulan']}}</view>
+                    <view class="ba-center">{{currPageNum}} / {{picMulti.smeta.length}}</view>
+                    <view bindtap="favClick" class="ba-right">
+                        <i class="icon iconfont {{favStatus==0?'icon-favor':'icon-favorfill'}}"></i>
+                    {{picMulti.fav_num}}</view>
+                </view>
+                <view class="box-btn">
+                    <view class="fixed-btn {{stsModel?'x':''}}" wx:if="{{isBtnShow}}">
+                        <navigator openType="redirect" style="background:{{syscfg.color.btncolor.length?syscfg.color.btncolor:'#2fbd80'}}" url="/pages/calc/calc" wx:if="{{calcShow}}">
+								{{i8n['hqzxgj']}}
+							</navigator>
+                        <button bindtap="fenXiangIsShow" class="{{isOne?'is-one':''}}" style="background:{{syscfg.color.btn2color.length?syscfg.color.btn2color:'#2fbd80'}}">
+								{{i8n['fenxianghaoyou']}}
+							</button>
+                    </view>
+                    <view hidden="{{!fenXiangShow}}">
+                        <view bindtap="fenXiangIsHide" class="share-bg"></view>
+                        <view class="share-box">
+                            <view class="content">
+                                <view>
+                                    <button openType="share">
+                                        <simg src="/public/images/share_wx.png"></simg>
+                                        <view class="text">{{i8n['weixinhaoyou']}}</view>
+                                    </button>
+                                </view>
+                                <view bindtap="buildPosterSaveAlbum">
+                                    <simg mode="aspectFit" src="/public/images/share_hb.png"></simg>
+                                    <view>{{i8n['fenxianghaibao']}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="box-single {{picType==1?'':'none'}}">
+        <view class="box-pic-show">
+            <simg bindtap="saveImg" bindtouchend="timeend" bindtouchmove="touchmove" bindtouchstart="timestart" class="{{isLeft?'left':''}} {{isShow?'show':''}} {{isRight?'right':''}}" data-imgurl="{{picSingle.thumb_url}}" mode="aspectFit" src="{{picSingle.thumb_url}}"></simg>
+        </view>
+        <view class="box-info {{stsModel?'x':''}}">
+            <view class="box-cont">
+                <view class="title">{{picSingle.name}}</view>
+                <view class="box-arrt">
+                    <view class="ba-left">{{picSingle.show_num}} {{i8n['liulan']}}</view>
+                    <view bindtap="favClick" class="ba-right">
+                        <i class="icon iconfont {{favStatus==0?'icon-favor':'icon-favorfill'}}"></i> {{picSingle.fav_num}}</view>
+                </view>
+                <view class="box-btn">
+                    <view class="fixed-btn {{stsModel?'x':''}}" wx:if="{{isBtnShow}}">
+                        <navigator openType="redirect" style="background:{{syscfg.color.btncolor.length?syscfg.color.btncolor:'#2fbd80'}}" url="/pages/calc/calc" wx:if="{{calcShow}}">
+								{{i8n['hqzxgj']}}
+							</navigator>
+                        <button bindtap="fenXiangIsShow" class="{{isOne?'is-one':''}}" style="background:{{syscfg.color.btn2color.length?syscfg.color.btn2color:'#2fbd80'}}">
+								{{i8n['fenxianghaoyou']}}
+							</button>
+                    </view>
+                    <view hidden="{{!fenXiangShow}}">
+                        <view bindtap="fenXiangIsHide" class="share-bg"></view>
+                        <view class="share-box">
+                            <view class="content">
+                                <view>
+                                    <button openType="share">
+                                        <simg src="/public/images/share_wx.png"></simg>
+                                        <view class="text">{{i8n['weixinhaoyou']}}</view>
+                                    </button>
+                                </view>
+                                <view bindtap="buildPosterSaveAlbum">
+                                    <simg mode="aspectFit" src="/public/images/share_hb.png"></simg>
+                                    <view>{{i8n['fenxianghaibao']}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="canvas-box" hidden="{{!canvasShow}}">
+        <canvas canvasId="firstCanvas" class="firstCanvas" style="height:{{canvasH}}px"></canvas>
+        <button bindtap="SaveAlbum" hidden="{{openSettingBtnHidden}}" style="width: 90%;background:{{syscfg.color.btncolor.length?syscfg.color.btncolor:'#2fbd80'}}">{{i8n['']}}保存海报</button>
+        <button bindopensetting="handleSetting" class="openSetting" hidden="{{!openSettingBtnHidden}}" openType="openSetting" type="primary">{{i8n['']}}去授权</button>
+    </view>
+</view>
+<view class="play" wx:else>
+    <block wx:if="{{picType==1}}">
+        <view class="play-top">
+            <view class="top-info">
+                <view class="info">
+                    <simg src="/public/images/logo.png"></simg>
+                    <view class="name">张鹏博</view>
+                    <view class="zw">首席设计师</view>
+                </view>
+                <view class="yuyue">预约设计</view>
+            </view>
+            <view class="jianjie">
+                <view class="decs"> {{picSingle.name}}</view>
+                <view class="flag">天津|别墅|欧式风格|230㎡|35万</view>
+            </view>
+        </view>
+        <view class="img">
+            <simg bindtap="saveImg" class="{{isLeft?'left':''}} {{isShow?'show':''}} {{isRight?'right':''}}" data-imgurl="{{picSingle.thumb_url}}" mode="aspectFit" src="{{picSingle.thumb_url}}"></simg>
+        </view>
+        <view class="linian">
+            设计理念: <text>设计房子其实就是设计生活，绝不是简单的堆砌复制，设计应该有灵魂，设计更应该有故事。</text>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="play-top">
+            <view class="top-info">
+                <view class="info">
+                    <simg src="/public/images/logo.png"></simg>
+                    <view class="name">张鹏博</view>
+                    <view class="zw">首席设计师</view>
+                </view>
+                <view class="yuyue">预约设计</view>
+            </view>
+            <view class="jianjie">
+                <view class="decs"> {{picMulti.name}}</view>
+                <view class="flag">天津|别墅|欧式风格|230㎡|35万</view>
+            </view>
+        </view>
+        <swiper bindchange="spChange" class="box-swiper" duration="{{500}}" indicatorActiveColor="#ffffff" indicatorColor="#999999" indicatorDots="{{true}}" style="height:400rpx;background-color:#fff;">
+            <swiper-item wx:for="{{picMulti.smeta}}" wx:key="{{item.id}}">
+                <simg bindtap="saveImg" bindtouchend="timeend" bindtouchstart="timestart" data-imgurl="{{item.attr_url}}" mode="aspectFit" src="{{item.attr_url}}"></simg>
+            </swiper-item>
+        </swiper>
+        <view class="title">{{currTitle}}</view>
+        <view class="linian">
+            设计理念: <text>设计房子其实就是设计生活，绝不是简单的堆砌复制，设计应该有灵魂，设计更应该有故事。</text>
+        </view>
+    </block>
+    <navigator class="baojia" style="background-color:{{syscfg.color.btncolor?syscfg.color.btncolor:'#2fbd80'}}" url="/pages/calc/calc">免费获取装修报价</navigator>
+</view>

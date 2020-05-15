@@ -1,0 +1,23 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="container" hidden="{{loadingShow}}" style="background:#eee;">
+    <view class="box-pic">
+        <view class="box-pic-header" style="top: {{topHeight}}px">
+            <view class="box-tab-pic">
+                <view class="box-li">
+                    <view bindtap="clickPicType" class="box-item transition-all" style="color:{{picType==0&&syscfg.color.maincolor.length?syscfg.color.maincolor:''}}">{{i8n['taotu']}}
+                        <view style="height:6rpx;width:234rpx;background: {{syscfg.color.maincolor.length?syscfg.color.maincolor:''}};transform:translateX({{375*picType+'rpx'}}); transition: all 0.3s;"></view>
+                    </view>
+                </view>
+                <view class="box-li">
+                    <view bindtap="clickPicType" class="box-item transition-all" style="color:{{picType==1&&syscfg.color.maincolor.length?syscfg.color.maincolor:''}}">{{i8n['dantu']}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="box-pic-list-multi transition-all {{picType==0?'':'none'}}">
+            <waterfall isMore="{{ismore}}" listData="{{picListMulti}}" picType="{{0}}"></waterfall>
+        </view>
+        <view class="box-pic-list-single transition-all {{picType==1?'':'none'}}">
+            <waterfall isMore="{{ismore}}" listData="{{picListSingle}}" picType="{{1}}"></waterfall>
+        </view>
+    </view>
+</view>

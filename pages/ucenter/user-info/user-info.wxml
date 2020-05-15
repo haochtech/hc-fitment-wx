@@ -1,0 +1,40 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="user-info">
+    <view class="user-item">
+        <view class="item">
+            <button bindgetuserinfo="onGotUserInfo" class="box" openType="getUserInfo">
+                <text class="label">头像</text>
+                <view class="info">
+                    <image src="{{info.avatar}}"></image>
+                    <i class="iconfont icon-right"></i>
+                </view>
+            </button>
+        </view>
+        <view class="item">
+            <button bindgetuserinfo="onGotUserInfo" class="box" openType="getUserInfo">
+                <text class="label">昵称</text>
+                <view class="info">
+                    <text>{{info.nicename}}</text>
+                    <i class="iconfont icon-right"></i>
+                </view>
+            </button>
+        </view>
+        <view class="item">
+            <navigator class="box" url="/pages/ucenter/set-info/set-info?type=设置手机号&phone={{info.mobile}}">
+                <text class="label">手机号</text>
+                <view class="info">
+                    <text>{{info.mobile?info.mobile:'暂无手机号'}}</text>
+                    <i class="iconfont icon-right"></i>
+                </view>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator class="box" url="/pages/ucenter/set-info/set-info?type=设置/重设密码">
+                <text class="label">密码</text>
+                <view class="info">
+                    <i class="iconfont icon-right"></i>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>

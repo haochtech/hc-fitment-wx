@@ -1,0 +1,44 @@
+<view class="list-item" wx:for="{{districtList}}" wx:for-item="itm" wx:key="{{index}}">
+    <view bindtap="goToDetail" class="content" data-id="{{itm.id}}">
+        <view class="top">
+            <view>
+                <text class="title">{{itm.title}}</text>
+                <text class="jd">{{itm.site_progress_cn}}</text>
+            </view>
+            <view class="ll flex-main">
+                <view class="lg">
+                    <i class="iconfont icon-view"></i> {{itm.view_count}}</view>
+                <view>
+                    <i class="iconfont icon-favorfill"></i> {{itm.fav_count}}</view>
+            </view>
+        </view>
+        <view class="img">
+            <image src="{{ite}}" wx:for="{{itm.dy_thumbs_url}}" wx:for-item="ite" wx:key="{{index}}"></image>
+        </view>
+    </view>
+</view>
+<fade-view bottom class="district-set" id="district-set" ipxStyle="background-color:#fff;">
+    <view class="set-main">
+        <view class="title" style="color:{{color}};">{{title}}</view>
+        <view class="item">
+            <view class="container flex-m" wx:if="{{jieduan.length}}">
+                <view class="label">修改阶段</view>
+                <i class="iconfont icon-right"></i>
+                <picker bindchange="selectChange" class="jieduan-select" range="{{jieduan}}" value="{{jieduan[selectIndex]}}">aaaaa</picker>
+            </view>
+        </view>
+        <view class="item np">
+            <view bindtap="zhiding" class="container flex-m">
+                <view class="label">设为置顶</view>
+                <switch checked class="swit"></switch>
+            </view>
+        </view>
+        <view class="item np" wx:if="{{jieduan.length}}">
+            <view bindtap="wangong" class="container flex-m">
+                <view class="label">设为完工</view>
+                <switch checked class="swit"></switch>
+            </view>
+        </view>
+    </view>
+</fade-view>
+<slloading wx:if="{{lS}}"></slloading>

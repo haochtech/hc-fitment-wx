@@ -1,0 +1,52 @@
+<view class="l0 {{direction?direction:'l2'}}" wx:if="{{picListData.length&&type=='0'}}">
+    <view class="box-li" wx:for="{{picListData}}" wx:key="{{item.id}}">
+        <navigator url="/pages/play/play?type=0&id={{item.id}}">
+            <simg mode="widthFix" src="{{item.thumb_url}}" style="width:{{item.pic_width}}px;height:{{item.pic_height}}px" wx:if="{{iswh}}"></simg>
+            <simg ismode="{{true}}" mode="widthFix" src="{{item.thumb_url}}" wx:else></simg>
+            <view class="box-title">{{item.name}}</view>
+            <view class="box-attr">
+                <view class="ba-left">{{item.show_num}} 浏览</view>
+                <view class="ba-right">
+                    <i class="icon iconfont icon-favorfill"></i> {{item.fav_num}}</view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="l1 {{direction}}" wx:elif="{{picListData.length&&type=='1'}}">
+    <view class="box-li" wx:for="{{picListData}}" wx:key="{{item.id}}">
+        <view bindtap="goToPlay" data-url="/pages/play/play?type=1&id={{item.id}}">
+            <simg mode="widthFix" src="{{item.thumb_url}}" style="width:{{item.pic_width}}px;height:{{item.pic_height}}px" wx:if="{{iswh}}"></simg>
+            <simg ismode="{{true}}" mode="widthFix" src="{{item.thumb_url}}" wx:else></simg>
+            <view class="box-attr">
+                <view class="ba-right">
+                    <i class="icon iconfont {{item.fav==0?'icon-favor':'icon-favorfill'}}"></i> {{item.fav_num}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="l2 l1" wx:elif="{{picListData.length&&type=='2'}}">
+    <view class="box-li" wx:for="{{picListData}}" wx:key="{{item.id}}">
+        <navigator url="/pages/play/play?type=1&id={{item.id}}">
+            <simg ismode="{{true}}" mode="widthFix" src="{{item.thumb_url}}"></simg>
+            <view class="box-attr">
+                <view class="ba-right">
+                    <i class="icon iconfont icon-favorfill"></i> {{item.fav_num}}</view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="pic-list" wx:elif="{{picListData.length&&type=='3'}}">
+    <navigator class="pic-item" url="/pages/play/play?id={{item.id}}&type={{picType}}" wx:for="{{picListData}}" wx:key="{{item.id}}">
+        <view class="img">
+            <simg mode="widthFix" src="{{item.thumb_url}}"></simg>
+        </view>
+        <view class="sjs" wx:if="{{item.sjs}}">
+            <simg src="{{item.sjs.img}}"></simg>
+            <view class="sjs-info">
+                <view class="tit">设计师：{{item.sjs.name}}</view>
+                <view class="name">{{item.name}}</view>
+                <view class="flag">擅长风格： {{item.sjs.flag}}</view>
+            </view>
+        </view>
+    </navigator>
+</view>

@@ -1,0 +1,45 @@
+<view class="container" hidden="{{loadingShow}}" style="min-height: {{syscfg.cpright.copyright_wxapp_l2!=''?'77':'81'}}vh">
+    <view class="box-top">
+        <view class="tp-bg"></view>
+        <view class="box-user">
+            <image src="{{user.avatar}}"></image>
+            <view class="user-info">
+                <view class="nicename">{{user.nicename}}</view>
+                <navigator class="phone" url="/pages/ucenter/user-info/user-info">
+                    <view class="p-info">
+                        手机号:
+                        <text class="ph" wx:if="{{user.mobile}}">{{user.mobile}}</text>
+                        <text class="no" wx:else>暂无</text>
+                    </view>
+                    <i class="iconfont icon-right"></i>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="top-bm"></view>
+    <view class="entrance-section">
+        <view bindtap="targetActionRun" data-action=">favorites" hoverClass="entrance-hover" wx:if="{{listData.status_good==='1'}}">
+            <i class="iconfont icon-favorite"></i>{{i8n['shangpingshoucang']}}</view>
+        <view bindtap="targetActionRun" data-action="/pages/ucenter/fav/fav" hoverClass="entrance-hover" wx:if="{{listData.status_pic==='1'}}">
+            <i class="iconfont icon-favorite"></i>{{i8n['tupianshoucang']}}</view>
+        <view bindtap="targetActionRun" data-action="/pages/ucenter/district/district" hoverClass="entrance-hover" wx:if="{{listData.status_site==='1'}}">
+            <i class="iconfont icon-favorite"></i>{{i8n['gongdishoucang']}}</view>
+        <view bindtap="targetActionRun" data-action="/pages/ucenter/product/product" hoverClass="entrance-hover" wx:if="{{listData.status_product==='1'}}">
+            <i class="iconfont icon-favorite"></i>{{i8n['chanpingshoucang']}}</view>
+        <view bindtap="targetActionRun" data-action="/pages/ucenter/panorama/panorama" hoverClass="entrance-hover" wx:if="{{listData.status_panorama==='1'}}">
+            <i class="iconfont icon-favorite"></i>{{i8n['quanjingtushoucang']}}</view>
+        <text class="space-line"></text>
+        <view bindtap="targetActionRun" data-action=">orders" hoverClass="entrance-hover" wx:if="{{listData.status_order==='1'}}">
+            <i class="iconfont icon-order"></i>{{i8n['wodedingdan']}}</view>
+        <view bindtap="targetActionRun" data-action=">address" hoverClass="entrance-hover" wx:if="{{listData.status_address==='1'}}">
+            <i class="iconfont icon-marker"></i>{{i8n['wodedizhi']}}</view>
+        <view bindtap="targetActionRun" data-action=">coupons" hoverClass="entrance-hover" wx:if="{{listData.status_coupon==='1'}}">
+            <i class="iconfont icon-coupon"></i>{{i8n['wodeyouhuiquan']}}</view>
+        <view bindtap="targetActionRun" data-action="/pages/ucenter/relist/relist" hoverClass="entrance-hover" wx:if="{{listData.status_reserve==='1'}}">
+            <i class="iconfont icon-reserve"></i>{{i8n['wodeyuyue']}}</view>
+        <view bindtap="targetActionRun" data-action=":callPresetPhone" hoverClass="entrance-hover" wx:if="{{listData.status_consult==='1'}}">
+            <i class="iconfont icon-service"></i>{{i8n['lianxikefu']}}</view>
+        <text bindtap="clearStorage" class="clear">{{i8n['qingchuhuancun']}}</text>
+        <text class="ver">{{ver}}</text>
+    </view>
+</view>

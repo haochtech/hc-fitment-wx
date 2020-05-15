@@ -1,0 +1,48 @@
+page {
+    background: #eee;
+}
+
+.box-pic {
+    min-height: 68vh;
+}
+
+.box-pic-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 80;
+}
+
+.box-tab-pic {
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+
+.box-tab-pic .box-li {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 0;
+}
+
+.box-tab-pic .box-li .box-item {
+    width: 234rpx;
+    font-size: 32rpx;
+    color: #333;
+    line-height: 106rpx;
+    text-align: center;
+    display: inline-block;
+}
+
+.box-tab-pic .box-li .box-item.active {
+    color: #2fbd80;
+}
+
+.box-pic-list-multi,.box-pic-list-single {
+    overflow: hidden;
+    padding: 150rpx 0 20rpx;
+}

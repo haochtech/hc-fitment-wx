@@ -1,0 +1,19 @@
+.form-data-detail {
+    padding: 30rpx;
+}
+
+.form-page {
+    background-color: #eee;
+    position: relative;
+}
+
+.form-page .bg-img {
+    position: fixed;
+    left: 0;
+    width: 100%;
+}
+
+.form-content {
+    position: relative;
+    z-index: 2;
+}

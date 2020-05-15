@@ -1,0 +1,74 @@
+.config-err {
+    position: fixed;
+    top: 25vh;
+    width: 86vw;
+    left: 7vw;
+    text-align: center;
+    z-index: 999999;
+    border-radius: 20rpx;
+    background: #fff;
+    font-size: 30rpx;
+    overflow: hidden;
+    box-shadow: 0 0 5px #b3aeae;
+    color: #555;
+}
+
+.www {
+    color: #999;
+    position: fixed;
+    bottom: 10vh;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.err-bg {
+    position: fixed;
+    top: 0;
+    background: #eee;
+    width: 100vw;
+    left: 0;
+    height: 100vh;
+    text-align: center;
+    z-index: 99999;
+}
+
+.config-err .title {
+    padding: 26rpx 0;
+    background: #fff;
+}
+
+.config-err .content {
+    padding: 30rpx 20rpx;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    line-height: 1.7;
+    font-size: 28rpx;
+    color: #888;
+    max-height: 25vh;
+    overflow: hidden;
+    overflow-y: auto;
+    word-break: break-all;
+}
+
+.config-err .control {
+    background: #eee;
+    padding: 20rpx 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.config-err .control view {
+    width: 50%;
+    padding: 10rpx 0;
+}
+
+.config-err .control .reset {
+    border-right: 1px solid #ddd;
+}
+
+.config-err .control .copy {
+    color: #44B549;
+}

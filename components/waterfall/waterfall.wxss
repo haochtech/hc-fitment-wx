@@ -1,0 +1,3 @@
+.box-cont {
+    padding: 0 20rpx;
+}

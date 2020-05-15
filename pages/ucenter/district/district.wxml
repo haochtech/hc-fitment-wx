@@ -1,0 +1,7 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="district-fav" style="min-height: {{syscfg.cpright.copyright_wxapp_l2!=''?'77':'81'}}vh">
+    <district-list districtList="{{districtList}}"></district-list>
+    <view class="not-find" wx:if="{{districtList.length===0}}">
+        <empty backText="工地" backUrl="@district" icon="favorite" msg="您还没有收藏相关工地哦"></empty>
+    </view>
+</view>

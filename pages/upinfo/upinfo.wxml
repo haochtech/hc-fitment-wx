@@ -1,0 +1,103 @@
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="container" hidden="{{!bacePrice.labour_cost_percent}}">
+    <view class="box-cont">
+        <view class="box-info">
+            <view class="box-title">
+                <view class="box-up">{{i8n['mpmzxygj']}}</view>
+                <view class="box-bottom" style="color:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">{{bookOne.money_format}} {{i8n['wanyuan']}}</view>
+            </view>
+            <view class="box-bb">
+                <view class="box-t"></view>
+            </view>
+            <view class="box-word">
+                <view class="word">{{bacePrice.labour_cost_title}}： {{bacePrice.labour_cost_percent}} {{i8n['yuan']}}</view>
+                <view class="word">{{bacePrice.stuff_cost_title}}： {{bacePrice.stuff_cost_percent}} {{i8n['yuan']}}</view>
+                <view class="word">{{bacePrice.style_cost_title}}： {{bacePrice.style_cost_market}} {{i8n['yuan']}} <view class="word-del">{{bacePrice.style_cost_original}} {{i8n['yuan']}}</view>
+                </view>
+                <view class="word">{{bacePrice.qt_cost_title}}： {{bacePrice.qt_cost_market}} {{i8n['yuan']}} <view class="word-del">{{bacePrice.qt_cost_original}} {{i8n['yuan']}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="box-tips">
+            <view class="item color-gold" style="color:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">* {{i8n['xhzxgjjhdnmfzx']}}</view>
+            <view class="item">* {{i8n['yclppjgclbtwz']}}</view>
+        </view>
+    </view>
+    <view class="box-form">
+        <view class="box-title">
+            <view class="box-left-line" style="background:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">
+                <view class="after" style="background:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}"></view>
+            </view>
+            <text style="color:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">{{i8n['wsyxxx']}}</text>
+            <view class="box-right-line" style="background:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">
+                <view class="after" style="background:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}"></view>
+            </view>
+        </view>
+        <view class="box-subtitle" style="color:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}">{{i8n['rwmgljndjtxqyxfw']}}</view>
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <view class="box-item">
+                <view class="box-label">1、{{i8n['njdzxlxs']}}</view>
+                <view class="box-opts">
+                    <radio-group bindchange="rcbook1" class="radio-group">
+                        <label class="radio">
+                            <radio value="{{i8n['jiazhuang']}}"></radio>{{i8n['jiazhuang']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['gongzhuang']}}"></radio>{{i8n['gongzhuang']}}（{{i8n['bangongshi']}}、{{i8n['cantingdeng']}}）
+					</label>
+                    </radio-group>
+                </view>
+            </view>
+            <view class="box-item">
+                <view class="box-label">2、{{i8n['njdfwzts']}}<view style="display: inline-block;font-size:24rpx;">（{{i8n['esffxfy']}}）</view>
+                </view>
+                <view class="box-opts">
+                    <radio-group bindchange="rcbook2" class="radio-group">
+                        <label class="radio">
+                            <radio value="{{i8n['maopeifang']}}"></radio>{{i8n['maopeifang']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['jiufangfanxin']}}"></radio>{{i8n['jiufangfanxin']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['jvbugaizao']}}"></radio>{{i8n['jvbugaizao']}}
+					</label>
+                    </radio-group>
+                </view>
+            </view>
+            <view class="box-item">
+                <view class="box-label">3、{{i8n['njzbssshkszx']}}</view>
+                <view class="box-opts">
+                    <radio-group bindchange="rcbook3" class="radio-group">
+                        <label class="radio">
+                            <radio value="{{i8n['bangeyuenei']}}"></radio>{{i8n['bangeyuenei']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['yigeyuenei']}}"></radio>{{i8n['yigeyuenei']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['lianggeyuenei']}}"></radio>{{i8n['lianggeyuenei']}}
+					</label>
+                        <label class="radio">
+                            <radio value="{{i8n['linaggeyueyishang']}}"></radio>{{i8n['linaggeyueyishang']}}
+					</label>
+                    </radio-group>
+                </view>
+            </view>
+            <view class="box-item">
+                <view class="box-label">4、{{i8n['ninjiadeloupan']}}</view>
+                <view class="box-tips">{{i8n['txlpxxwnyzsg']}}</view>
+                <view class="box-opts">
+                    <view class="section">
+                        <input bindinput="rcbook4" maxlength="100" placeholder="{{i8n['qsrnjdlp']}}" style="border-color:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}" type="text"></input>
+                    </view>
+                </view>
+            </view>
+            <view class="box-item">
+                <view class="box-btn box-sp">
+                    <button formType="submit" style="background:{{syscfg.color.maincolor.length?syscfg.color.maincolor:'#f69b32'}}" type="default">{{i8n['lijitijiao']}}</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

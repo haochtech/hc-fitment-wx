@@ -1,0 +1,49 @@
+<page-top pageTitle="{{pageTitle}}" tabs="{{true}}"></page-top>
+<config-error bindreset="reset" errData="{{errData}}" errMsg="{{errMsg}}" wx:if="{{configError}}"></config-error>
+<block wx:else>
+    <slloading wx:if="{{loading}}"></slloading>
+    <block wx:else>
+        <!-- <view catchtouchstart="notTouch" class="auth-bg"></view>
+            <view class="head">{{i8n['xyndsq']}}</view>
+            <view class="content">
+                <view class="top">
+                    <view>{{i8n['wltgghdfw']}}</view>
+                    <view>{{i8n['qzshdtskzdjyx']}}</view>
+                </view>
+                <image mode="widthFix" src="/public/images/auth.png"></image>
+                <view class="flex">
+                  <button bindgetuserinfo="bindGetUserInfoClick" class="auth-hint" openType="getUserInfo">
+                    <view class="yoxi">{{i8n['wozhidaole']}}</view>
+                  </button>
+                  <button bindgetuserinfo="bindGetUserInfoClick" class="auth-hint" openType="getUserInfo">
+                    <view class="yoxi">暂不授权</view>
+                  </button>
+                </view>
+            </view>
+            <view class="version">ver {{syscfg.info.version}}</view> -->
+
+      <view class="new-modal">
+        <view class="new-modal-content">
+          <view class="new-modal-header" style="padding:30rpx 0;line-height:60rpx;border-bottom: 1rpx solid #eee;">{{i8n['xyndsq']}}</view>
+          <view class="new-modal-body" style="min-height:0;margin-bottom:0;max-height:none">
+            <view style="padding:32rpx 0 0 0;text-align: center">
+              <view>{{i8n['wltgghdfw']}}</view>
+              <view>{{i8n['qzshdtskzdjyx']}}</view>
+            </view>
+            <view style="text-align:center">
+              <image src="/public/images/auth.png" style="width:500rpx;height:460rpx;"></image>
+            </view>
+            <view class="flex-x-center box-pack-between">
+              <view style="margin-right: 40rpx;">
+                <button bindtap="cancelLogin" class="btn new-modal-btn" style="background-color:#d0d0d0;width:230rpx;height:70rpx;border-radius:80rpx;color:#fff;margin-bottom:40rpx;font-size: 11pt;line-height: 70rpx;">暂不授权</button>
+              </view>
+              <view>
+                <button bindgetuserinfo="bindGetUserInfoClick" class="btn new-modal-btn" openType="getUserInfo" style="background-color:#04be01;width:230rpx;height:70rpx;border-radius:80rpx;color:#fff;margin-bottom:40rpx;font-size: 11pt;line-height: 70rpx;">{{i8n['wozhidaole']}}</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>      
+        
+    </block>
+</block>

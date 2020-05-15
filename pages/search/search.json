@@ -1,0 +1,24 @@
+{
+    "usingComponents": {
+        "ui-price": "/components/ui-price/ui-price",
+        "sllist": "/slmodules/sllist/sllist",
+        "simg": "/components/simg/simg",
+        "slcommon": "/slmodules/slcommons/slcommons",
+        "copyright": "/components/copyright/copyright",
+        "empty": "/components/empty/empty",
+        "pic-list": "/components/pic-list/pic-list",
+        "slloading": "/slmodules/slloading/slloading",
+        "page-top": "/components/page-top/page-top",
+        "ipx-bottom": "/components/ipx-bottom/ipx-bottom",
+        "shortcut-bubble": "/components/shortcut-bubble/shortcut-bubble",
+        "status-view": "/components/status-view/status-view",
+        "save-formid": "/slmodules/save-formid/save-formid",
+        "report-submit": "/components/report-submit/report-submit",
+        "district-list": "/slmodules/district-list/district-list",
+        "config-error": "/components/config-error/config-error",
+        "loading-icon": "/components/loading-icon/loading-icon",
+        "articles-list": "/components/articles-list/articles-list",
+        "pager-loading": "/components/pager-loading/pager-loading",
+        "waterfall": "/components/waterfall/waterfall"
+    }
+}

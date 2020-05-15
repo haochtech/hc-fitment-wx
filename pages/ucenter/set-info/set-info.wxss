@@ -1,0 +1,84 @@
+.set-info .top,.set-info .phone-item {
+    display: flex;
+    align-items: center;
+    padding: 0 30rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.set-info .phone-item {
+    justify-content: space-between;
+    position: relative;
+}
+
+.set-info .phone-item input {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    line-height: 90rpx;
+    height: 90rpx;
+    background-color: #e8e8e8;
+    border-radius: 10rpx;
+    padding: 0 20rpx;
+}
+
+.set-info .phone-item button {
+    position: absolute;
+    right: 20rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #0cbb08;
+    background-color: transparent;
+    z-index: 888;
+}
+
+.set-info .info-box>input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #eee;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    margin: 0;
+    overflow: hidden;
+}
+
+.set-info .title-box {
+    margin-right: 40rpx;
+    font-size: 40rpx;
+}
+
+.set-info button {
+    height: 60rpx;
+    border: none;
+    background: #44B549;
+    color: #fff;
+    margin: 0;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    padding: 0 30rpx;
+    display: inline-block;
+    border-radius: 6rpx;
+}
+
+.set-info .cont {
+    padding: 0 30rpx;
+    margin-top: 50rpx;
+}
+
+.set-info button.save {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 34rpx;
+}
+
+.set-info .icon-prev {
+    font-size: 40rpx;
+    color: #000;
+    padding-right: 30rpx;
+}
+
+.set-info button::after {
+    display: none;
+}

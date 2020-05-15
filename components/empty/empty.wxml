@@ -1,0 +1,5 @@
+<view class="empty">
+    <i class="iconfont icon-warn"></i>
+    <text class="msg">{{msg}}</text>
+    <view bindtap="goToRoute" class="back" style="border-color:{{color}};color:{{color}};" wx:if="{{backUrl}}">返回{{backText}}看看</view>
+</view>

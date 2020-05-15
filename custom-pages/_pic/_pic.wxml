@@ -1,0 +1,157 @@
+<block wx:if="{{syscfg.defaults.banner_show==1}}">
+    <view class="selection" wx:if="{{!(mybanner==null)&&mybanner.length>0}}">
+        <swiper autoplay="{{true}}" class="box-swiper" duration="{{1000}}" indicatorDots="{{true}}" interval="{{3000}}" style="{{!(syscfg.defaults.banner_height==null)?'height:'+syscfg.defaults.banner_height:''}}">
+            <swiper-item bindtap="bindLinkClick" data-ctype="banner" data-url="{{item.page_url}}" wx:for="{{mybanner}}" wx:key="{{item.id}}">
+                <simg src="{{item.thumb_url}}"></simg>
+            </swiper-item>
+        </swiper>
+    </view>
+</block>
+<view class="container" style="background:{{picn==='1'?'#eee':'#fff'}};min-height: {{syscfg.cpright.copyright_wxapp_l2!=''?'77':'81'}}vh">
+    <view class="box-pic" hidden="{{picListMulti.psLeft.length===0&&notEmpty}}">
+        <view class="box-pic-header" style="top:{{topHeight}}px">
+            <view class="box-tab-pic">
+                <view class="box-li" style="width: {{syscfg.panorama.status_panorama_in_pic_show==='1'?25:33.33}}%">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-tp="0" style="{{picType==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['taotu']}}</view>
+                        <view style="height:6rpx;width:{{750/(syscfg.panorama.status_panorama_in_pic_show==='1'?4:3)}}rpx;background: {{syscfg.color.maincolor.length?syscfg.color.maincolor:'#000'}};transform:translateX({{750/(syscfg.panorama.status_panorama_in_pic_show==='1'?4:3)*picType+'rpx'}}); transition: all 0.3s;"></view>
+                    </view>
+                </view>
+                <view class="box-li" style="width: {{syscfg.panorama.status_panorama_in_pic_show==='1'?25:33.33}}%">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-tp="1" style="{{picType==1&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==1&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['dantu']}}</view>
+                    </view>
+                </view>
+                <view class="box-li" style="width: 33.33%" wx:if="{{syscfg.panorama.status_panorama_in_pic_show==='1'}}">
+                    <view bindtap="clickPicType" class="box-item transition-all" data-tp="2" style="{{picType==2&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                        <view style="{{picType==2&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['quanjingtu']}}</view>
+                    </view>
+                </view>
+                <view class="box-li" style="width: {{syscfg.panorama.status_panorama_in_pic_show==='1'?25:33.33}}%">
+                    <navigator class="box-item transition-all" url="/pages/search/search">
+                        <view>
+                            <i class="icon-cx iconfont"></i> {{i8n['sousuo']}}</view>
+                    </navigator>
+                </view>
+            </view>
+            <view class="box-pic-multi transition-all {{picType==0?'':'none'}}">
+                <view class="box-options">
+                    <view class="box-li">
+                        <view bindtap="clickOrderPanel" class="box-item" data-index="9999">{{picOrderMultiTitle}}<i class="icon iconfont icon-unfold"></i>
+                        </view>
+                        <view class="box-options-body {{tabAttr.curBdIndex==9999?'show':''}}" style="height:{{tabAttr.curBdIndex==9999?'160rpx':0}}">
+                            <view class="box-ul">
+                                <view bindtap="clickOptionOrderMulti" class="box-li" data-id="0" data-str="{{i8n['zhonghepaixu']}}" style="{{picOrderMulti==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderMulti==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['buxian']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOrderMulti" class="box-li" data-id="1" data-str="{{i8n['anshoucangliang']}}" style="{{picOrderMulti==1&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderMulti==1&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['anshoucangliang']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOrderMulti" class="box-li" data-id="2" data-str="{{i8n['anliulanliang']}}" style="{{picOrderMulti==2&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderMulti==2&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['anliulanliang']}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="box-li" wx:if="{{item.parentid==0}}" wx:for="{{picTagMulti}}" wx:key="{{item.id}}">
+                        <view bindtap="clickOrderPanel" class="box-item" data-index="{{index}}">{{item.name}}<i class="icon iconfont icon-unfold"></i>
+                        </view>
+                        <view class="box-options-body {{tabAttr.curBdIndex==index?'show':''}}" style="height:{{tabAttr.curBdIndex==index?multiHeights[item.id]+'rpx':0}}">
+                            <view class="box-ul">
+                                <view bindtap="clickOptionOtherMulti" class="box-li" data-id="0" data-parent-index="{{index}}" data-str="{{item.name}}" style="{{item.gl==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{item.gl==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['buxian']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOtherMulti" class="box-li" data-id="{{row.id}}" data-parent-index="{{index}}" data-str="{{row.name}}" style="{{item.gl==row.id&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}" wx:if="{{row.parentid==item.id}}" wx:for="{{picTagMulti}}" wx:for-index="rowidx" wx:for-item="row" wx:key="{{row.id}}">
+                                    <view style="{{item.gl==row.id&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{row.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="box-pic-single transition-all {{picType==1?'':'none'}}">
+                <view class="box-options">
+                    <view class="box-li">
+                        <view bindtap="clickOrderPanel" class="box-item" data-height="{{200}}" data-index="9998">
+                            {{picOrderSingleTitle}}<i class="icon iconfont icon-unfold"></i>
+                        </view>
+                        <view class="box-options-body {{tabAttr.curBdIndex==9998?'show':''}}" style="height:{{tabAttr.curBdIndex==9998?'160rpx':0}}">
+                            <view class="box-ul">
+                                <view bindtap="clickOptionOrderSingle" class="box-li" data-id="0" data-str="{{i8n['zonghepaixu']}}" style="{{picOrderSingle==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderSingle==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['buxian']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOrderSingle" class="box-li" data-id="1" data-str="{{i8n['anshoucangliang']}}" style="{{picOrderSingle==1&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderSingle==1&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['anshoucangliang']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOrderSingle" class="box-li" data-id="2" data-str="{{i8n['anliulanliang']}}" style="{{picOrderSingle==2&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{picOrderSingle==2&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['anliulanliang']}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="box-li" wx:if="{{item.parentid==0}}" wx:for="{{picTagSingle}}" wx:key="{{item.id}}">
+                        <view bindtap="clickOrderPanel" class="box-item" data-index="{{index}}">
+                                    {{item.name}}<i class="icon iconfont icon-unfold"></i>
+                        </view>
+                        <view class="box-options-body {{tabAttr.curBdIndex==index?'show':''}}" style="height:{{tabAttr.curBdIndex==index?singleHeights[item.id]+'rpx':0}}">
+                            <view class="box-ul">
+                                <view bindtap="clickOptionOtherSingle" class="box-li" data-id="0" data-parent-index="{{index}}" data-str="{{item.name}}" style="{{item.gl==0&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}">
+                                    <view style="{{item.gl==0&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{i8n['buxian']}}</view>
+                                </view>
+                                <view bindtap="clickOptionOtherSingle" class="box-li" data-id="{{row.id}}" data-parent-index="{{index}}" data-str="{{row.name}}" style="{{item.gl==row.id&&syscfg.color.maincolor.length>0?'border-color:'+syscfg.color.maincolor:''}}" wx:if="{{row.parentid==item.id}}" wx:for="{{picTagSingle}}" wx:for-index="rowidx" wx:for-item="row" wx:key="{{row.id}}">
+                                    <view style="{{item.gl==row.id&&syscfg.color.maincolor.length>0?'color:'+syscfg.color.maincolor:''}}">{{row.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="box-pic-list-multi transition-all {{picType==0?'':'none'}}" wx:if="{{picn==='1'}}">
+            <view class="box-cont">
+                <view class="box-ul">
+                    <block wx:if="{{picListMulti.psLeft.length||picListMulti.psRight.length}}">
+                        <view class="fl">
+                            <pic-list direction="fl" picListData="{{picListMulti.psLeft}}" picType="0" type="0"></pic-list>
+                        </view>
+                        <view class="fr">
+                            <pic-list direction="fr" picListData="{{picListMulti.psRight}}" picType="0" type="0"></pic-list>
+                        </view>
+                    </block>
+                    <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+                </view>
+            </view>
+        </view>
+        <view class="box-pic-list-multi transition-all {{picType==0?'':'none'}}" wx:else>
+            <pic-list picListData="{{multiPicList}}" picType="0" type="3" wx:if="{{multiPicList.length}}"></pic-list>
+            <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+        </view>
+        <view class="box-pic-list-single transition-all {{picType==1?'':'none'}}" wx:if="{{picn==='1'}}">
+            <view class="box-cont">
+                <view class="box-ul">
+                    <block wx:if="{{picListSingle.psLeft.length||picListSingle.psRight.length}}">
+                        <view class="fl">
+                            <pic-list bindgotoplay="goToPlay" direction="fl" picListData="{{picListSingle.psLeft}}" picType="1" type="1"></pic-list>
+                        </view>
+                        <view class="fr">
+                            <pic-list bindgotoplay="goToPlay" direction="fr" picListData="{{picListSingle.psRight}}" picType="1" type="1"></pic-list>
+                        </view>
+                    </block>
+                    <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+                </view>
+            </view>
+        </view>
+        <view class="box-pic-list-single transition-all {{picType==1?'':'none'}}" wx:else>
+            <pic-list picListData="{{singlePicList}}" picType="1" type="3" wx:if="{{singlePicList.length}}"></pic-list>
+            <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+        </view>
+        <view class="quanjing transition-all {{picType==2?'':'none'}}" wx:if="{{syscfg.panorama.status_panorama_in_pic_show==='1'}}">
+            <view class="products-list">
+                <articles-list items="{{list}}" mode="{{listMode}}" type="" url="panorama-detail" wx:if="{{list.length}}"></articles-list>
+            </view>
+            <pager-loading config="{{pagerLoadingConfig}}" state="{{pagerLoadingState}}"></pager-loading>
+        </view>
+        <view bindtap="hideBoxShadow" catchtouchstart="notTouch" class="box-shadow {{tabAttr.curBdIndex>=0?'':'none'}}"></view>
+    </view>
+</view>
+<slloading wx:if="{{picListMulti.psLeft.length===0&&notEmpty}}"></slloading>

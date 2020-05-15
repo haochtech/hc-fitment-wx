@@ -1,0 +1,69 @@
+{
+    "pages": [
+        "custom-pages/main/main",
+        "pages/index/index",
+        "pages/list/list",
+        "pages/play/play",
+        "pages/upinfo/upinfo",
+        "pages/guestbook/guestbook",
+        "pages/web/web",
+        "pages/stylist/stylist",
+        "pages/opus/opus",
+        "pages/calc/calc",
+        "pages/reserve/reserve",
+        "pages/actlist/actlist",
+        "pages/actlist2/actlist2",
+        "pages/ucenter/fav/fav",
+        "pages/ucenter/relist/relist",
+        "pages/style/style",
+        "pages/districtDetail/districtDetail",
+        "pages/decorationCompany/decorationCompany",
+        "pages/company/company",
+        "pages/search/search",
+        "pages/article/article",
+        "pages/ucenter/district/district",
+        "pages/address/address",
+        "pages/commodities/commodities",
+        "pages/commodity/commodity",
+        "pages/coupons/coupons",
+        "pages/coupons-supply/coupons-supply",
+        "pages/favorites/favorites",
+        "pages/order-commit/order-commit",
+        "pages/order-detail/order-detail",
+        "pages/orders/orders",
+        "pages/empty/empty",
+        "pages/panorama-detail/panorama-detail",
+        "pages/product-article/product-article",
+        "pages/ucenter/panorama/panorama",
+        "pages/ucenter/product/product",
+        "pages/district-up/district-up",
+        "pages/ucenter/user-info/user-info",
+        "pages/ucenter/set-info/set-info",
+        "pages/form-page/form-page"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "智享装修演示版"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/empty/empty"
+            },
+            {
+                "pagePath": "custom-pages/main/main"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 5000
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+        }
+    },
+    "sitemapLocation": "sitemap97.json"
+}

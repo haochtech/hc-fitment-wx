@@ -1,0 +1,26 @@
+<view class="box-cont" wx:if="{{picType===0}}">
+    <view class="box-ul">
+        <block wx:if="{{picData.left.length||picData.right.length}}">
+            <view class="fl">
+                <pic-list direction="fl" picListData="{{picData.left}}" picType="0" type="0"></pic-list>
+            </view>
+            <view class="fr">
+                <pic-list direction="fr" picListData="{{picData.right}}" picType="0" type="0"></pic-list>
+            </view>
+        </block>
+        <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+    </view>
+</view>
+<view class="box-cont" wx:else>
+    <view class="box-ul">
+        <block wx:if="{{picData.left.length||picData.right.length}}">
+            <view class="fl">
+                <pic-list bindgotoplay="goToPlay" direction="fl" picListData="{{picData.left}}" picType="1" type="1"></pic-list>
+            </view>
+            <view class="fr">
+                <pic-list bindgotoplay="goToPlay" direction="fr" picListData="{{picData.right}}" picType="1" type="1"></pic-list>
+            </view>
+        </block>
+        <empty msg="{{i8n['myxgtp']}}" wx:else></empty>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<page-top pageTitle="{{pageTitle}}" tabs="{{true}}"></page-top>
+<shortcut-bubble group="{{shortcutGroup}}"></shortcut-bubble>
+<include src="../pageGroup.wxml"></include>
+<ipx-bottom></ipx-bottom>
+<slcommon contactShow="{{shortcutGroup!=='shop'&&shortcutGroup!=='district'}}"></slcommon>

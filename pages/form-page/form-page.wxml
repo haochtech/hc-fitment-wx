@@ -1,0 +1,17 @@
+<import src="../../public/wxParse/wxParse.wxml"></import>
+<page-top pageTitle="{{pageTitle}}"></page-top>
+<view class="form-page" wx:if="{{!loadingShow}}">
+    <image class="bg-img" mode="widthFix" src="{{bg}}"></image>
+    <view class="form-content">
+        <swiper autoplay="{{true}}" class="box-swiper" duration="{{1000}}" indicatorDots="{{true}}" interval="{{3000}}" style="height: 400rpx;" wx:if="{{formBanner.length}}">
+            <swiper-item bindtap="bindLinkClick" data-url="{{item.url}}" wx:for="{{formBanner}}" wx:key="{{item.id}}">
+                <simg src="{{item.img}}"></simg>
+            </swiper-item>
+        </swiper>
+        <form-module bindreload="reload" caseId="{{caseId}}" caseName="{{caseName}}" formData="{{formData}}" labelShow="{{labelShow}}" wx:if="{{hasFormData&&formData.length}}"></form-module>
+        <view class="form-data-detail" wx:if="{{hasArticle}}">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<slloading wx:else></slloading>
